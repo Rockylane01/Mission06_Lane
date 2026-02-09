@@ -1,7 +1,76 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@{
-}
+﻿@model Movie
 
-<h1>Add A Movie</h1>
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-12 col-sm-10 col-md-8 col-lg-6 col-xl-5">
+            <div class="card mt-4">
+                <div class="card-body">
+                    <h3 class="card-title mb-3">Add A Movie</h3>
+
+                    <form id="add-movie" method="post">
+                        <div asp-validation-summary="ModelOnly" class="text-danger mb-3"></div>
+
+                        <div class="mb-3">
+                            <label asp-for="category" class="form-label">Category</label>
+                            <input asp-for="category" class="form-control" required />
+                            <span asp-validation-for="category" class="text-danger"></span>
+                        </div>
+
+                        <div class="mb-3">
+                            <label asp-for="title" class="form-label">Title</label>
+                            <input asp-for="title" class="form-control" required />
+                            <span asp-validation-for="title" class="text-danger"></span>
+                        </div>
+
+                        <div class="mb-3">
+                            <label asp-for="year" class="form-label">Release Year</label>
+                            <input asp-for="year" class="form-control" type="number" required />
+                            <span asp-validation-for="year" class="text-danger"></span>
+                        </div>
+
+                        <div class="mb-3">
+                            <label asp-for="director" class="form-label">Director</label>
+                            <input asp-for="director" class="form-control" required />
+                            <span asp-validation-for="director" class="text-danger"></span>
+                        </div>
+
+                        <div class="mb-3">
+                            <label asp-for="rating" class="form-label">Rating</label>
+                            <select asp-for="rating" class="form-select" required>
+                                <option value="" selected>---</option>
+                                <option value="G">G</option>
+                                <option value="PG">PG</option>
+                                <option value="PG-13">PG-13</option>
+                                <option value="R">R</option>
+                            </select>
+                            <span asp-validation-for="rating" class="text-danger"></span>
+                        </div>
+
+                        <div class="mb-3">
+                            <label asp-for="edited" class="form-label">Edited</label>
+                            <select asp-for="edited" class="form-select">
+                                <option value="" selected>---</option>
+                                <option value="0">No</option>
+                                <option value="1">Yes</option>
+                            </select>
+                        </div>
+
+                        <div class="mb-3">
+                            <label asp-for="lentTo" class="form-label">Lent To</label>
+                            <input asp-for="lentTo" class="form-control" />
+                        </div>
+
+                        <div class="mb-3">
+                            <label asp-for="notes" class="form-label">Notes</label>
+                            <input asp-for="notes" class="form-control" />
+                        </div>
+
+                        <div class="d-grid">
+                            <input type="submit" value="Add Movie" class="btn btn-primary" />
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

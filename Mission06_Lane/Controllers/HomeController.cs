@@ -25,7 +25,7 @@ namespace Mission06_Lane.Controllers
         [HttpPost]
         public IActionResult AddMovie(Movie m)
         {
-            return View(m);
+            return View("index");
         }
     }
 }
