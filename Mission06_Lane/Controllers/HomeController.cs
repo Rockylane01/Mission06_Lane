@@ -11,15 +11,21 @@ namespace Mission06_Lane.Controllers
             return View();
         }
 
-        public IActionResult Privacy()
+        public IActionResult GetToKnow()
         {
             return View();
         }
 
-        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-        public IActionResult Error()
+        [HttpGet]
+        public IActionResult AddMovie()
         {
-            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult AddMovie(Movie m)
+        {
+            return View(m);
         }
     }
 }
