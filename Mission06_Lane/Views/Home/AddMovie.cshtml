@@ -12,31 +12,31 @@
 
                         <div class="mb-3">
                             <label asp-for="category" class="form-label">Category</label>
-                            <input asp-for="category" class="form-control" required />
+                            <input asp-for="category" name="category" class="form-control" required />
                             <span asp-validation-for="category" class="text-danger"></span>
                         </div>
 
                         <div class="mb-3">
                             <label asp-for="title" class="form-label">Title</label>
-                            <input asp-for="title" class="form-control" required />
+                            <input asp-for="title" name="title" class="form-control" required />
                             <span asp-validation-for="title" class="text-danger"></span>
                         </div>
 
                         <div class="mb-3">
                             <label asp-for="year" class="form-label">Release Year</label>
-                            <input asp-for="year" class="form-control" type="number" required />
+                            <input asp-for="year" name="year" class="form-control" type="number" required />
                             <span asp-validation-for="year" class="text-danger"></span>
                         </div>
 
                         <div class="mb-3">
                             <label asp-for="director" class="form-label">Director</label>
-                            <input asp-for="director" class="form-control" required />
+                            <input asp-for="director" name="director" class="form-control" required />
                             <span asp-validation-for="director" class="text-danger"></span>
                         </div>
 
                         <div class="mb-3">
                             <label asp-for="rating" class="form-label">Rating</label>
-                            <select asp-for="rating" class="form-select" required>
+                            <select asp-for="rating" name="rating" class="form-select" required>
                                 <option value="" selected>---</option>
                                 <option value="G">G</option>
                                 <option value="PG">PG</option>
@@ -48,7 +48,7 @@
 
                         <div class="mb-3">
                             <label asp-for="edited" class="form-label">Edited</label>
-                            <select asp-for="edited" class="form-select">
+                            <select asp-for="edited" name="edited" class="form-select">
                                 <option value="" selected>---</option>
                                 <option value="0">No</option>
                                 <option value="1">Yes</option>
@@ -57,12 +57,12 @@
 
                         <div class="mb-3">
                             <label asp-for="lentTo" class="form-label">Lent To</label>
-                            <input asp-for="lentTo" class="form-control" />
+                            <input asp-for="lentTo" name="lentTo" class="form-control" />
                         </div>
 
                         <div class="mb-3">
                             <label asp-for="notes" class="form-label">Notes</label>
-                            <input asp-for="notes" class="form-control" maxlength="25" />
+                            <input asp-for="notes" name="notes" class="form-control" maxlength="25" />
                         </div>
 
                         <div class="d-grid">

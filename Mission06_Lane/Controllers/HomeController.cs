@@ -6,6 +6,13 @@ namespace Mission06_Lane.Controllers
 {
     public class HomeController : Controller
     {
+        private MovieContext _context;
+
+        public HomeController(MovieContext temp)
+        {
+            _context = temp;
+        }
+
         public IActionResult Index()
         {
             return View();
@@ -25,7 +32,9 @@ namespace Mission06_Lane.Controllers
         [HttpPost]
         public IActionResult AddMovie(Movie m)
         {
-            return View("index");
+            _context.Add(m);
+            _context.SaveChanges();
+            return RedirectToAction("Index");
         }
     }
 }
