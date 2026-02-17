@@ -16,41 +16,56 @@ namespace Mission06_Lane.Migrations
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "10.0.2");
 
-            modelBuilder.Entity("Mission06_Lane.Models.Movie", b =>
+            modelBuilder.Entity("Mission06_Lane.Models.Category", b =>
                 {
-                    b.Property<int>("movieID")
+                    b.Property<int>("CategoryId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
-                    b.Property<string>("category")
+                    b.Property<string>("CategoryName")
                         .IsRequired()
                         .HasColumnType("TEXT");
 
-                    b.Property<string>("director")
-                        .IsRequired()
-                        .HasColumnType("TEXT");
+                    b.HasKey("CategoryId");
 
-                    b.Property<int?>("edited")
+                    b.ToTable("Categories");
+                });
+
+            modelBuilder.Entity("Mission06_Lane.Models.Movie", b =>
+                {
+                    b.Property<int>("MovieID")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
-                    b.Property<string>("lentTo")
-                        .HasColumnType("TEXT");
-
-                    b.Property<string>("notes")
-                        .HasColumnType("TEXT");
-
-                    b.Property<string>("rating")
-                        .IsRequired()
-                        .HasColumnType("TEXT");
-
-                    b.Property<string>("title")
-                        .IsRequired()
-                        .HasColumnType("TEXT");
-
-                    b.Property<int>("year")
+                    b.Property<int?>("CategoryId")
                         .HasColumnType("INTEGER");
 
-                    b.HasKey("movieID");
+                    b.Property<int>("CopiedToPlex")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("Director")
+                        .HasColumnType("TEXT");
+
+                    b.Property<int>("Edited")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("LentTo")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Notes")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Rating")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Title")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<int>("Year")
+                        .HasColumnType("INTEGER");
+
+                    b.HasKey("MovieID");
 
                     b.ToTable("Movies");
                 });

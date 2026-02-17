@@ -1,0 +1,56 @@
+﻿
+@{
+    ViewData["Title"] = "MovieList";
+}
+
+@model List<Movie>
+
+<h1 class="mb-4">Movie List</h1>
+
+<div class="container">
+    <div class="table-responsive">
+        <table class="table table-striped table-bordered table-hover align-middle">
+
+            <thead class="table-light">
+                <tr>
+                    <th>Category ID</th>
+                    <th>Title</th>
+                    <th>Year</th>
+                    <th>Director</th>
+                    <th>Rating</th>
+                    <th>Edited</th>
+                    <th>Lent To</th>
+                    <th>Copied To Plex</th>
+                    <th>Notes</th>
+                    <th></th>
+                    <th></th>
+
+                </tr>
+            </thead>
+
+            <tbody>
+                @foreach (var movie in Model)
+                {
+                    <tr>
+                        <td>@movie.CategoryId</td>
+                        <td>@movie.Title</td>
+                        <td>@movie.Year</td>
+                        <td>@movie.Director</td>
+                        <td>@movie.Rating</td>
+                        <td>@movie.Edited</td>
+                        <td>@movie.LentTo</td>
+                        <td>@movie.CopiedToPlex</td>
+                        <td>@movie.Notes</td>
+                        <td>
+                            <a class="btn btn-sm btn-primary" href="#">Edit</a>
+                        </td>
+                        <td>
+                            <a class="btn btn-sm btn-danger" href="#">Delete</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+
+        </table>
+    </div>
+</div>

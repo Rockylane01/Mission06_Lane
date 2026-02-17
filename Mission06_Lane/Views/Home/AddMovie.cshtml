@@ -11,44 +11,44 @@
                         <div asp-validation-summary="ModelOnly" class="text-danger mb-3"></div>
 
                         <div class="mb-3">
-                            <label asp-for="category" class="form-label">Category</label>
-                            <input asp-for="category" name="category" class="form-control" required />
-                            <span asp-validation-for="category" class="text-danger"></span>
+                            <label asp-for="CategoryId" class="form-label">Category Id</label>
+                            <input asp-for="CategoryId" name="CategoryId" class="form-control" required />
+                            <span asp-validation-for="CategoryId" class="text-danger"></span>
                         </div>
 
                         <div class="mb-3">
-                            <label asp-for="title" class="form-label">Title</label>
-                            <input asp-for="title" name="title" class="form-control" required />
-                            <span asp-validation-for="title" class="text-danger"></span>
+                            <label asp-for="Title" class="form-label">Title</label>
+                            <input asp-for="Title" name="Title" class="form-control" required />
+                            <span asp-validation-for="Title" class="text-danger"></span>
                         </div>
 
                         <div class="mb-3">
-                            <label asp-for="year" class="form-label">Release Year</label>
-                            <input asp-for="year" name="year" class="form-control" type="number" required />
-                            <span asp-validation-for="year" class="text-danger"></span>
+                            <label asp-for="Year" class="form-label">Release Year</label>
+                            <input asp-for="Year" name="Year" class="form-control" type="number" required />
+                            <span asp-validation-for="Year" class="text-danger"></span>
                         </div>
 
                         <div class="mb-3">
-                            <label asp-for="director" class="form-label">Director</label>
-                            <input asp-for="director" name="director" class="form-control" required />
-                            <span asp-validation-for="director" class="text-danger"></span>
+                            <label asp-for="Director" class="form-label">Director</label>
+                            <input asp-for="Director" name="Director" class="form-control" required />
+                            <span asp-validation-for="Director" class="text-danger"></span>
                         </div>
 
                         <div class="mb-3">
-                            <label asp-for="rating" class="form-label">Rating</label>
-                            <select asp-for="rating" name="rating" class="form-select" required>
+                            <label asp-for="Rating" class="form-label">Rating</label>
+                            <select asp-for="Rating" name="Rating" class="form-select" required>
                                 <option value="" selected>---</option>
                                 <option value="G">G</option>
                                 <option value="PG">PG</option>
                                 <option value="PG-13">PG-13</option>
                                 <option value="R">R</option>
                             </select>
-                            <span asp-validation-for="rating" class="text-danger"></span>
+                            <span asp-validation-for="Rating" class="text-danger"></span>
                         </div>
 
                         <div class="mb-3">
-                            <label asp-for="edited" class="form-label">Edited</label>
-                            <select asp-for="edited" name="edited" class="form-select">
+                            <label asp-for="Edited" class="form-label">Edited</label>
+                            <select asp-for="Edited" name="Edited" class="form-select">
                                 <option value="" selected>---</option>
                                 <option value="0">No</option>
                                 <option value="1">Yes</option>
@@ -56,13 +56,19 @@
                         </div>
 
                         <div class="mb-3">
-                            <label asp-for="lentTo" class="form-label">Lent To</label>
-                            <input asp-for="lentTo" name="lentTo" class="form-control" />
+                            <label asp-for="LentTo" class="form-label">Lent To</label>
+                            <input asp-for="LentTo" name="LentTo" class="form-control" />
                         </div>
 
                         <div class="mb-3">
-                            <label asp-for="notes" class="form-label">Notes</label>
-                            <input asp-for="notes" name="notes" class="form-control" maxlength="25" />
+                            <label asp-for="CopiedToPlex" class="form-label">Lent To</label>
+                            <input asp-for="CopiedToPlex" name="CopiedToPlex" class="form-control" />
+                            <span asp-validation-for="CopiedToPlex" class="text-danger"></span>
+                        </div>
+
+                        <div class="mb-3">
+                            <label asp-for="Notes" class="form-label">Notes</label>
+                            <input asp-for="Notes" name="Notes" class="form-control" maxlength="25" />
                         </div>
 
                         <div class="d-grid">

@@ -23,6 +23,14 @@ namespace Mission06_Lane.Controllers
             return View();
         }
 
+        public IActionResult MovieList()
+        {
+            var Movies = _context.Movies.ToList();
+
+            return View(Movies);
+        }
+
+        // GET and POST for Add Movie
         [HttpGet]
         public IActionResult AddMovie()
         {
