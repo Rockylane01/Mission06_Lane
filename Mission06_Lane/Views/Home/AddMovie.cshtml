@@ -1,42 +1,57 @@
 ﻿@model Movie
 
+@{
+    var isEdit = Model != null && Model.MovieId != 0;
+    ViewData["Title"] = isEdit ? "Edit Movie" : "Add Movie";
+}
+
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-12 col-sm-10 col-md-8 col-lg-6 col-xl-5">
             <div class="card mt-4">
                 <div class="card-body">
-                    <h3 class="card-title mb-3">Add A Movie</h3>
+                    <h3 class="card-title mb-3">@(isEdit ? "Edit Movie" : "Add A Movie")</h3>
 
-                    <form id="add-movie" method="post">
+                    <form id="add-movie" method="post" asp-action="@(isEdit ? "EditMovie" : "AddMovie")">
                         <div asp-validation-summary="ModelOnly" class="text-danger mb-3"></div>
 
                         <div class="mb-3">
+                            <input type="hidden" asp-for="MovieId" />
+                        </div>
+
+                        <div class="mb-3">
                             <label asp-for="CategoryId" class="form-label">Category Id</label>
-                            <input asp-for="CategoryId" name="CategoryId" class="form-control" required />
+                            <select asp-for="CategoryId" name="CategoryId" class="form-select">
+                                <option value="" selected>---</option>
+                                @foreach (var category in ViewBag.Categories)
+                                {
+                                    <option value="@category.CategoryId">@category.CategoryName</option>
+                                }
+                            </select>
                             <span asp-validation-for="CategoryId" class="text-danger"></span>
                         </div>
 
                         <div class="mb-3">
                             <label asp-for="Title" class="form-label">Title</label>
-                            <input asp-for="Title" name="Title" class="form-control" required />
+                            <input asp-for="Title" name="Title" class="form-control" />
                             <span asp-validation-for="Title" class="text-danger"></span>
                         </div>
 
                         <div class="mb-3">
                             <label asp-for="Year" class="form-label">Release Year</label>
-                            <input asp-for="Year" name="Year" class="form-control" type="number" required />
+                            <input asp-for="Year" name="Year" class="form-control" type="number" min="1888" />
                             <span asp-validation-for="Year" class="text-danger"></span>
                         </div>
 
                         <div class="mb-3">
                             <label asp-for="Director" class="form-label">Director</label>
-                            <input asp-for="Director" name="Director" class="form-control" required />
+                            <input asp-for="Director" name="Director" class="form-control" />
                             <span asp-validation-for="Director" class="text-danger"></span>
                         </div>
 
                         <div class="mb-3">
                             <label asp-for="Rating" class="form-label">Rating</label>
-                            <select asp-for="Rating" name="Rating" class="form-select" required>
+                            <select asp-for="Rating" name="Rating" class="form-select">
                                 <option value="" selected>---</option>
                                 <option value="G">G</option>
                                 <option value="PG">PG</option>
@@ -53,6 +68,7 @@
                                 <option value="0">No</option>
                                 <option value="1">Yes</option>
                             </select>
+                            <span asp-validation-for="Edited" class="text-danger"></span>
                         </div>
 
                         <div class="mb-3">
@@ -61,8 +77,12 @@
                         </div>
 
                         <div class="mb-3">
-                            <label asp-for="CopiedToPlex" class="form-label">Lent To</label>
-                            <input asp-for="CopiedToPlex" name="CopiedToPlex" class="form-control" />
+                            <label asp-for="CopiedToPlex" class="form-label">CopiedToPlex</label>
+                            <select asp-for="CopiedToPlex" name="CopiedToPlex" class="form-select">
+                                <option value="" selected>---</option>
+                                <option value="0">No</option>
+                                <option value="1">Yes</option>
+                            </select>
                             <span asp-validation-for="CopiedToPlex" class="text-danger"></span>
                         </div>
 
@@ -72,8 +92,15 @@
                         </div>
 
                         <div class="d-grid">
-                            <input type="submit" value="Add Movie" class="btn btn-primary" />
+                            <input type="submit" value="@(isEdit ? "Save Changes" : "Add Movie")" class="btn btn-primary" />
                         </div>
+
+                        @if (isEdit)
+                        {
+                            <div class="d-grid mt-2">
+                                <a asp-controller="Home" asp-action="MovieList" class="btn btn-secondary">Cancel</a>
+                            </div>
+                        }
                     </form>
                 </div>
             </div>
